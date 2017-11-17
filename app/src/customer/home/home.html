@@ -1,0 +1,197 @@
+<body>
+
+<div id="all">
+
+    <div id="content">
+
+        <div class="container">
+            <div class="col-md-12">
+                <div id="main-slider">
+                    <div class="item">
+                        <img ng-src="resource/img/main-slider1.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" src="resource/img/main-slider2.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" src="resource/img/main-slider3.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" src="resource/img/main-slider4.jpg" alt="">
+                    </div>
+                </div>
+                <!-- /#main-slider -->
+            </div>
+        </div>
+
+        <!-- *** ADVANTAGES HOMEPAGE ***
+_________________________________________________________ -->
+        <div id="advantages">
+
+            <div class="container">
+                <div class="same-height-row">
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable">
+                            <div class="icon"><i class="fa fa-heart"></i>
+                            </div>
+
+                            <h3><a href="#faq">We love our customers</a></h3>
+                            <p>We are known to provide best possible service ever</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable">
+                            <div class="icon"><i class="fa fa-tags"></i>
+                            </div>
+
+                            <h3><a href="#category">Best prices</a></h3>
+                            <p>We provide best prices for customers.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="box same-height clickable">
+                            <div class="icon"><i class="fa fa-thumbs-up"></i>
+                            </div>
+
+                            <h3><a href="#contact">100% satisfaction guaranteed</a></h3>
+                            <p>Free returns on everything for 1 week.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /.container -->
+
+        </div>
+        <!-- /#advantages -->
+
+        <!-- *** ADVANTAGES END *** -->
+
+        <!-- *** HOT PRODUCT SLIDESHOW ***
+_________________________________________________________ -->
+        <div id="hot">
+
+            <div class="box">
+                <div class="container">
+                    <div class="col-md-12">
+                        <h2>Hot this week</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="content-grids">
+
+                    <div class="col-md-2 content-grid" ng-repeat="product in products | limitTo:3">
+                        <div class="product">
+
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="#detail/id={{product._id}}">
+                                            <img ng-src="{{product.image}}" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="#detail/id={{product._id}}">
+                                            <img ng-src="{{product.image}}" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <a href="#detail" class="invisible">
+                                <img ng-src="{{product.image}}" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3><a href="#detail/id={{product._id}}">{{product.name}}</a></h3>
+                                <p class="price">
+                                    <del>VND {{product.price+10000}}</del>
+                                    {{product.price}}
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <!-- /.container -->
+
+        </div>
+
+        <div class="box text-center">
+            <div class="container">
+                <div class="col-md-12">
+                    <h3 class="text-uppercase">From our blog</h3>
+
+                    <p class="lead">What's news about flower ? <a href="#blog">Check our blog!</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="col-md-12">
+
+                <div id="blog-homepage" class="row">
+                    <div class="col-sm-6">
+                        <div class="post">
+                            <h4><a href="#post">Order now</a></h4>
+                            <p class="author-category">By <a href="#">Thuan Luu</a> in <a href="">Flower and life</a>
+                            </p>
+                            <hr>
+                            <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                                ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit
+                                amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                            <p class="read-more"><a href="#post" class="btn btn-primary">Continue reading</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="post">
+                            <h4><a href="#post">Who is who - example blog post</a></h4>
+                            <p class="author-category">By <a href="#">John Slim</a> in <a href="">About Minimal</a>
+                            </p>
+                            <hr>
+                            <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+                                ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit
+                                amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
+                                ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                            <p class="read-more"><a href="#post" class="btn btn-primary">Continue reading</a>
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /#blog-homepage -->
+            </div>
+        </div>
+        <!-- /.container -->
+
+        <!-- *** BLOG HOMEPAGE END *** -->
+
+
+    </div>
+    <!-- /#content -->
+
+</div>
+<!-- /#all -->
+
+</body>
+<script src="resource/js/jquery-1.11.0.min.js"></script>
+<script src="resource/js/bootstrap.min.js"></script>
+<script src="resource/js/jquery.cookie.js"></script>
+<script src="resource/js/waypoints.min.js"></script>
+<script src="resource/js/modernizr.js"></script>
+<script src="resource/js/bootstrap-hover-dropdown.js"></script>
+<script src="resource/js/owl.carousel.min.js"></script>
+<script src="resource/js/front.js"></script>
