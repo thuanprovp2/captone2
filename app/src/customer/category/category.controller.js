@@ -15,7 +15,7 @@ angular.module('myApp')
 
         CategoryFactory.fetchAllProducts()
             .then(function (response) {
-                $scope.products=response.data;
+                $scope.products=response.data.data;
             })
             .catch(function () {
                 $scope.products=[];

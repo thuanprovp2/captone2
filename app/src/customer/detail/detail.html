@@ -9,11 +9,8 @@
                     <ul class="breadcrumb">
                         <li><a href="#category">Home</a>
                         </li>
-                        <li><a href="#category">Ladies</a>
-                        </li>
-                        <li><a href="#category">Tops</a>
-                        </li>
-                        <li>White Blouse Armani</li>
+
+                        <li>{{item.name}}</li>
                     </ul>
 
                 </div>
@@ -105,13 +102,11 @@
                         <div class="col-sm-6">
                             <div class="box">
                                 <h1 class="text-center">{{item.name}}</h1>
-                                <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material & care and sizing</a>
-                                </p>
-                                <p class="price">{{item.price}} VND</p>
+                                <p class="text-center">Description: {{item.description}}</p>
+                                <p class="price">Price:{{item.price}} VND</p>
 
                                 <p class="text-center buttons">
                                     <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a> 
-                                    <a href="basket.html" class="btn btn-default"><i class="fa fa-heart"></i> Add to wishlist</a>
                                 </p>
 
 
@@ -148,10 +143,10 @@
                                 <li>Name: {{item.name}}</li>
                                 <li>Description: {{item.description}}</li>
                             </ul>
-                            <h4>Price & Policy</h4>
+                            <h4>Price & Status</h4>
                             <ul>
                                 <li>Price: {{item.price}}</li>
-                                <li>Policy</li>
+                                <li>Status: {{item.quantity >0?'còn hàng':' hết hàng'}}</li>
                             </ul>
 
                             <blockquote>
@@ -178,7 +173,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3 col-sm-6" ng-repeat="product in products">
+                        <div class="col-md-3 col-sm-6" ng-repeat="product in products |limitTo:3">
                             <div class="product same-height">
                                 <div class="flip-container">
                                     <div class="flipper">
@@ -198,8 +193,8 @@
                                     <img ng-src="{{product.image}}" alt="" class="img-responsive">
                                 </a>
                                 <div class="text">
-                                    <h3>{{product.name}}</h3>
-                                    <p class="price">{{product.price}}</p>
+                                    <h3><a href="#detail/id={{product._id}}">{{product.name}}</a></h3>
+                                    <p class="price">{{product.price}} VND</p>
                                 </div>
                             </div>
                             <!-- /.product -->

@@ -15,7 +15,7 @@ angular.module('myApp')
 
         DetailFactory.fetchAllProducts()
             .then(function (response) {
-                $scope.products = response.data;
+                $scope.products = response.data.data;
                 $.each($scope.products,function () {
                    if(this._id==$stateParams.id){
                        $scope.item=this;

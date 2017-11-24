@@ -15,8 +15,8 @@ angular.module('myApp')
 
         HomeFactory.fetchAllProducts()
             .then(function (response) {
-                $scope.products=response.data;
-                console.log($scope.products[0]);
+                $scope.products=response.data.data;
+                console.log($scope.products);
             })
             .catch(function () {
                 $scope.products=[];

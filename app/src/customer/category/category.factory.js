@@ -10,7 +10,7 @@
 angular.module('myApp')
     .factory('CategoryFactory', function ($http) {
        var fetchAllProducts=function () {
-           return $http.get('https://demo8290236.mockable.io/products')
+           return $http.get('http://localhost:8081/product/fetch')
        };
         return {
             fetchAllProducts:fetchAllProducts
