@@ -2,7 +2,7 @@
  * Created by Huong on 15/9/2016.
  */
 angular.module('myApp')
-    .controller('PostController',function ($scope) {
+    .controller('PostController',function ($scope,PostFactory,$stateParams) {
         // console.log(IndexService.fetchAllProducts());
         // IndexService.fetchAllProducts()
         //     .then(function (response) {
@@ -13,11 +13,18 @@ angular.module('myApp')
         //         $scope.products=[];
         //     });
 
-        // IndexFactory.fetchAllProducts()
-        //     .then(function (response) {
-        //         $scope.products=response.data;
-        //     })
-        //     .catch(function () {
-        //         $scope.products=[];
-        //     });
+        PostFactory.fetchAllArticle()
+            .then(function (response) {
+                $scope.posts = response.data.data;
+                $.each($scope.posts,function () {
+                    if(this._id==$stateParams.id){
+                        $scope.item=this;
+                    }
+                });
+
+                console.log($scope.item);
+            })
+            .catch(function () {
+                $scope.posts = [];
+            });
     });

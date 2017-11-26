@@ -8,63 +8,41 @@
                 <!-- *** LEFT COLUMN ***
 		     _________________________________________________________ -->
 
-                <div class="col-sm-9" id="blog-listing">
+                <div class="col-sm-12" id="blog-listing">
 
                     <ul class="breadcrumb">
 
                         <li><a href="#home">Home</a>
                         </li>
-                        <li>Blog listing</li>
+                        <li>Blog</li>
                     </ul>
 
 
                     <div class="box">
 
                         <h1>FLOWER NEWS</h1>
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
+                        <p>This is out blog, share knowledge about care plant.</p>
 
                     </div>
 
-                    <div class="post">
-                        <h2><a href="#post">Plant flower now</a></h2>
-                        <p class="author-category">By <a href="#">John Slim</a> in <a href="">Fashion and style</a>
+                    <div class="post" ng-repeat="blog in blogs.data">
+                        <h2><a href="#post/id={{blog._id}}">{{blog.title}}</a></h2>
+                        <p class="author-category">By <a href="#"></a> in <a href=""></a>
                         </p>
                         <hr>
                         <p class="date-comments">
-                            <a href="#post"><i class="fa fa-calendar-o"></i> June 20, 2013</a>
-                            <a href="#post"><i class="fa fa-comment-o"></i> 8 Comments</a>
+                            <a href="#post/id={{blog._id}}"><i class="fa fa-calendar-o"></i> {{blog.createdAt}}</a>
                         </p>
                         <div class="image">
-                            <a href="#post">
-                                <img src="resource/img/blog2.jpg" class="img-responsive" alt="Example blog post alt">
+                            <a href="#post/id={{blog._id}}">
+                                <img ng-src="{{blog.image}}" class="img-responsive" alt="Example blog post alt">
                             </a>
                         </div>
-                        <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies
-                            mi vitae est. Mauris placerat eleifend leo.</p>
-                        <p class="read-more"><a href="#post" class="btn btn-primary">Continue reading</a>
+                        <p class="intro">{{blog.description}}</p>
+                        <p class="read-more"><a href="#post/id={{blog._id}}" class="btn btn-primary">Continue reading</a>
                         </p>
                     </div>
 
-
-                    <div class="post">
-                        <h2><a href="#post">Who is who - example blog post</a></h2>
-                        <p class="author-category">By <a href="#">John Slim</a> in <a href="">About Minimal</a>
-                        </p>
-                        <hr>
-                        <p class="date-comments">
-                            <a href="#post"><i class="fa fa-calendar-o"></i> June 20, 2013</a>
-                            <a href="#post"><i class="fa fa-comment-o"></i> 8 Comments</a>
-                        </p>
-                        <div class="image">
-                            <a href="#post">
-                                <img src="resource/img/blog.jpg" class="img-responsive" alt="Example blog post alt">
-                            </a>
-                        </div>
-                        <p class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies
-                            mi vitae est. Mauris placerat eleifend leo.</p>
-                        <p class="read-more"><a href="#post" class="btn btn-primary">Continue reading</a>
-                        </p>
-                    </div>
 
                     <ul class="pager">
                         <li class="previous"><a href="#order">&larr; Older</a>
@@ -81,44 +59,6 @@
                 <!-- *** LEFT COLUMN END *** -->
 
 
-                <div class="col-md-3">
-                    <!-- *** BLOG MENU ***
- _________________________________________________________ -->
-                    <div class="panel panel-default sidebar-menu">
-
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Blog</h3>
-                        </div>
-
-                        <div class="panel-body">
-
-                            <ul class="nav nav-pills nav-stacked">
-                                <li>
-                                    <a href="#blog">About us</a>
-                                </li>
-                                <li class="active">
-                                    <a href="#blog">Fashion</a>
-                                </li>
-                                <li>
-                                    <a href="#blog">News and gossip</a>
-                                </li>
-                                <li>
-                                    <a href="#blog">Design</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                    <!-- *** BLOG MENU END *** -->
-
-                    <div class="banner">
-                        <a href="#">
-                            <img src="resource/img/banner.jpg" alt="sales 2014" class="img-responsive">
-                        </a>
-                    </div>
-                </div>
 
 
             </div>

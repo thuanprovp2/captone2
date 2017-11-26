@@ -2,7 +2,7 @@
  * Created by Huong on 15/9/2016.
  */
 angular.module('myApp')
-    .controller('BlogController',function ($scope) {
+    .controller('BlogController',function ($scope,BlogFactory) {
         // console.log(IndexService.fetchAllProducts());
         // IndexService.fetchAllProducts()
         //     .then(function (response) {
@@ -13,11 +13,12 @@ angular.module('myApp')
         //         $scope.products=[];
         //     });
 
-        // IndexFactory.fetchAllProducts()
-        //     .then(function (response) {
-        //         $scope.products=response.data;
-        //     })
-        //     .catch(function () {
-        //         $scope.products=[];
-        //     });
+        BlogFactory.fetchAllBlog()
+            .then(function (response) {
+                console.log(response.data);
+                $scope.blogs=response.data;
+            })
+            .catch(function () {
+                $scope.blogs=[];
+            });
     });

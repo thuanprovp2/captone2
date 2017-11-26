@@ -5,7 +5,7 @@ angular.module('myApp')
     .config(function ($stateProvider) {
         $stateProvider.state('post',{
             parent:'site',
-            url:'/post',
+            url:'/post/id=:id',
             views:{
                 'content@':{
                     templateUrl:'src/customer/post/post.html',
