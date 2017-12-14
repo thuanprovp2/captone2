@@ -19,6 +19,8 @@ angular.module('myApp')
                 $.each($scope.posts,function () {
                     if(this._id==$stateParams.id){
                         $scope.item=this;
+                        console.log($scope.item.description);
+                        $('#contentArticle').html($scope.item.description);
                     }
                 });
 

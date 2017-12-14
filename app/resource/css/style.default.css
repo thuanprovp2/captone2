@@ -46,7 +46,7 @@ h1 {
   padding-top: 5px;
   margin: 0;
   text-align: right;
-  font-size: 12px;
+  font-size: 14px;
   list-style: none;
 }
 @media (max-width: 991px) {
@@ -709,7 +709,7 @@ h1 {
 #content #checkout .table tbody tr td input,
 #content #basket .table tbody tr td input,
 #content #customer-order .table tbody tr td input {
-  width: 50px;
+  width: 65px;
   text-align: right;
 }
 #content #checkout .table tbody tr td img,

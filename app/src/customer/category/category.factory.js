@@ -9,10 +9,10 @@
 //     });
 angular.module('myApp')
     .factory('CategoryFactory', function ($http) {
-       var fetchAllProducts=function () {
-           return $http.get('http://localhost:8081/product/fetch')
-       };
+        var fetchAllProducts = function () {
+            return $http.get('http://localhost:8081/product/fetch')
+        };
         return {
-            fetchAllProducts:fetchAllProducts
+            fetchAllProducts: fetchAllProducts
         }
     });

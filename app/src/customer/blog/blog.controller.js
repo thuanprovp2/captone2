@@ -15,8 +15,9 @@ angular.module('myApp')
 
         BlogFactory.fetchAllBlog()
             .then(function (response) {
-                console.log(response.data);
+                console.log(response.data.data);
                 $scope.blogs=response.data;
+
             })
             .catch(function () {
                 $scope.blogs=[];

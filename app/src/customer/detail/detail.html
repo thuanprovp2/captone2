@@ -1,178 +1,147 @@
-
 <body>
-    <div id="all">
+<div id="all">
 
-        <div id="content">
-            <div class="container">
+    <div id="content">
+        <div class="container">
 
-                <div class="col-md-12">
-                    <ul class="breadcrumb">
-                        <li><a href="#category">Home</a>
-                        </li>
+            <div class="col-md-12">
+                <ul class="breadcrumb">
+                    <li><a href="#category">Home</a>
+                    </li>
 
-                        <li>{{item.name}}</li>
-                    </ul>
+                    <li>{{item.name}}</li>
+                </ul>
 
+            </div>
+
+            <div class="col-md-3">
+                <!-- *** MENUS AND FILTERS ***
+_________________________________________________________ -->
+                <div class="panel panel-default sidebar-menu">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Categories</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked category-menu">
+                            <li class="active">
+                                <a href="#category">TOPIC</a>
+                            </li>
+                            <li>
+                                <a href="#category">FLOWERS</a>
+                            </li>
+                            <li>
+                                <a href="#category">ACCESSORIES</a>
+                            </li>
+                            <li>
+                                <a href="#category">ALL PRODUCTS</a>
+                            </li>
+                        </ul>
+
+                    </div>
                 </div>
 
-                <div class="col-md-3">
-                    <!-- *** MENUS AND FILTERS ***
-    _________________________________________________________ -->
-                    <div class="panel panel-default sidebar-menu">
+                <!-- *** MENUS AND FILTERS END *** -->
 
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Categories</h3>
+            </div>
+
+            <div class="col-md-9">
+
+                <div class="row" id="productMain">
+                    <div class="col-sm-6">
+                        <div id="mainImage">
+                            <img ng-src="{{item.image}}" alt="" class="img-responsive">
                         </div>
 
-                        <div class="panel-body">
-                            <ul class="nav nav-pills nav-stacked category-menu">
-                                <li>
-                                    <a href="#category">FLOWERS <span class="badge pull-right">42</span></a>
-                                </li>
-                                <li class="active">
-                                    <a href="#category">OCCASION <span class="badge pull-right">123</span></a>
-                                </li>
-                                <li>
-                                    <a href="#category">ACCESSORIES <span class="badge pull-right">11</span></a>
-                                </li>
 
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="box">
+                            <h1 class="text-center">{{item.name}}</h1>
+                            <h4>Description</h4>
+                            <ul>
+                                <li>{{item.description}}</li>
                             </ul>
-
-                        </div>
-                    </div>
-
-                    <!-- *** MENUS AND FILTERS END *** -->
-
-                    <div class="banner">
-                        <a href="#category">
-                            <img ng-src="resource/img/banner.jpg" alt="sales 2014" class="img-responsive">
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-md-9">
-
-                    <div class="row" id="productMain">
-                        <div class="col-sm-6">
-                            <div id="mainImage">
-                                <img ng-src="{{item.image}}" alt="" class="img-responsive">
-                            </div>
-
-                            <!-- /.ribbon -->
-
-                            <div class="ribbon new">
-                                <div class="theribbon">NEW</div>
-                                <div class="ribbon-background"></div>
-                            </div>
-                            <!-- /.ribbon -->
-
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="box">
-                                <h1 class="text-center">{{item.name}}</h1>
-                                <p class="text-center">Description: {{item.description}}</p>
-                                <p class="price">Price:{{item.price}} VND</p>
-
-                                <p class="text-center buttons">
-                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Add to cart</a> 
-                                </p>
-
-
-                            </div>
-
-                            <div class="row" id="thumbs">
-                                <div class="col-xs-4">
-                                    <!--<a href="resource/img/detailbig1.jpg" class="thumb">-->
-                                        <!--<img src="resource/img/detailsquare.jpg" alt="" class="img-responsive">-->
-                                    <!--</a>-->
-                                </div>
-                                <div class="col-xs-4">
-                                    <!--<a href="resource/img/detailbig2.jpg" class="thumb">-->
-                                        <!--<img src="resource/img/detailsquare2.jpg" alt="" class="img-responsive">-->
-                                    <!--</a>-->
-                                </div>
-                                <div class="col-xs-4">
-                                    <!--<a href="resource/img/detailbig3.jpg" class="thumb">-->
-                                        <!--<img src="resource/img/detailsquare3.jpg" alt="" class="img-responsive">-->
-                                    <!--</a>-->
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="box" id="details">
-                        <p>
+                            <!--<p class="text-center">Description: {{item.description}}</p>-->
                             <h4>Product details</h4>
-                            <p></p>
-                            <h4></h4>
                             <ul>
                                 <li>Name: {{item.name}}</li>
-                                <li>Description: {{item.description}}</li>
+                                <li>Quantity product available: {{item.quantity}}</li>
                             </ul>
                             <h4>Price & Status</h4>
                             <ul>
-                                <li>Price: {{item.price}}</li>
-                                <li>Status: {{item.quantity >0?'còn hàng':' hết hàng'}}</li>
+                                <li>Category: {{item.category.name}}</li>
+                                <li>Status: {{item.quantity >0?'In stock':'Sold out'}}</li>
                             </ul>
 
                             <blockquote>
                                 <p><em>You can refund in 1 day</em>
                                 </p>
                             </blockquote>
+                            <p class="price">Price:{{item.price}} USD</p>
 
-                            <hr>
-                    </div>
+                            <p class="text-center buttons">
+                                <a href="" class="btn btn-primary" ng-click="addToCart()" id="addBasket"
+                                   ng-class="{'disabled':item.quantity<=0?true:false}"><i
+                                        class="fa fa-shopping-cart"></i> Add to cart</a>
+                            </p>
 
-                    <div class="row same-height-row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="box same-height">
-                                <h3>You may also like these products</h3>
-                            </div>
-                        </div>
 
-                        <div class="col-md-3 col-sm-6" ng-repeat="product in products |limitTo:3">
-                            <div class="product same-height">
-                                <div class="flip-container">
-                                    <div class="flipper">
-                                        <div class="front">
-                                            <a href="#detail/id={{product._id}}">
-                                                <img ng-src="{{product.image}}" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                        <div class="back">
-                                            <a href="#detail/id={{product._id}}">
-                                                <img ng-src="{{product.image}}" alt="" class="img-responsive">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#detail/id={{product._id}}" class="invisible">
-                                    <img ng-src="{{product.image}}" alt="" class="img-responsive">
-                                </a>
-                                <div class="text">
-                                    <h3><a href="#detail/id={{product._id}}">{{product.name}}</a></h3>
-                                    <p class="price">{{product.price}} VND</p>
-                                </div>
-                            </div>
-                            <!-- /.product -->
                         </div>
 
                     </div>
 
                 </div>
-                <!-- /.col-md-9 -->
+
+                <div class="row same-height-row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="box same-height">
+                            <h3>You may also like these products</h3>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6" ng-repeat="product in products |limitTo:3">
+                        <div class="product same-height">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <div class="front">
+                                        <a href="#detail/id={{product._id}}">
+                                            <img ng-src="{{product.image}}" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                    <div class="back">
+                                        <a href="#detail/id={{product._id}}">
+                                            <img ng-src="{{product.image}}" alt="" class="img-responsive">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#detail/id={{product._id}}" class="invisible">
+                                <img ng-src="{{product.image}}" alt="" class="img-responsive">
+                            </a>
+                            <div class="text">
+                                <h3><a href="#detail/id={{product._id}}">{{product.name}}</a></h3>
+                                <p class="price">{{product.price}} USD</p>
+                            </div>
+                        </div>
+                        <!-- /.product -->
+                    </div>
+
+                </div>
+
             </div>
-            <!-- /.container -->
+            <!-- /.col-md-9 -->
         </div>
-        <!-- /#content -->
-
-
-        <!-- *** FOOTER ***
- _________________________________________________________ -->
+        <!-- /.container -->
     </div>
-    <!-- /#all -->
+    <!-- /#content -->
+
+
+    <!-- *** FOOTER ***
+_________________________________________________________ -->
+</div>
+<!-- /#all -->
 
 
 </body>

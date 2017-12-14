@@ -1,148 +1,155 @@
-
 <body>
 
-    <div id="all">
+<div id="all">
 
-        <div id="content">
-            <div class="container">
+    <div id="content">
+        <div class="container">
 
-                <div class="col-md-12">
+            <div class="col-md-12">
 
-                    <ul class="breadcrumb">
-                        <li><a href="#home">Home</a>
-                        </li>
-                        <li>My account</li>
-                    </ul>
-
-                </div>
-
-                <div class="col-md-3">
-                    <!-- *** CUSTOMER MENU ***
- _________________________________________________________ -->
-                    <div class="panel panel-default sidebar-menu">
-
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Customer section</h3>
-                        </div>
-
-                        <div class="panel-body">
-
-                            <ul class="nav nav-pills nav-stacked">
-                                <li class="active">
-                                    <a href="#order"><i class="fa fa-list"></i> My orders</a>
-                                </li>
-                                <li>
-                                    <a href="#account"><i class="fa fa-user"></i> My account</a>
-                                </li>
-                                <li>
-                                    <a href="#home"><i class="fa fa-sign-out"></i> Logout</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <!-- /.col-md-3 -->
-
-                    <!-- *** CUSTOMER MENU END *** -->
-                </div>
-
-                <div class="col-md-9">
-                    <div class="box">
-                        <h1>My account</h1>
-                        <p class="lead">Change your personal details or your password here.</p>
-
-                        <h3>Change password</h3>
-
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="password_old">Old password</label>
-                                        <input type="password" class="form-control" id="password_old">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="password_1">New password</label>
-                                        <input type="password" class="form-control" id="password_1">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="password_2">Retype new password</label>
-                                        <input type="password" class="form-control" id="password_2">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-
-                            <div class="col-sm-12 text-center">
-                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save new password</button>
-                            </div>
-                        </form>
-
-                        <hr>
-
-                        <h3>Personal details</h3>
-                        <form>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group">
-                                        <label for="firstname">Name</label>
-                                        <input type="text" class="form-control" id="firstname">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <input type="text" class="form-control" id="address">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="phone">Phone</label>
-                                        <input type="text" class="form-control" id="phone">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.row -->
-
-                            <div class="row">
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-md-6">
-                                    <div class="form-group">
-                                        <label for="sex">Sex</label>
-                                        <select class="form-control" id="sex"></select>
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-12 text-center">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button>
-
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                <ul class="breadcrumb">
+                    <li><a href="#home">Home</a>
+                    </li>
+                    <li>My account</li>
+                </ul>
 
             </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#content -->
 
+            <div class="col-md-3">
+                <!-- *** CUSTOMER MENU ***
+_________________________________________________________ -->
+                <div class="panel panel-default sidebar-menu">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Customer section</h3>
+                    </div>
+
+                    <div class="panel-body" ng-controller="LogOutController">
+
+                        <ul class="nav nav-pills nav-stacked category-menu">
+                            <li>
+                                <a href="#account">My Account</a>
+                            </li>
+                            <li>
+                                <a href="#order">My Order </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /.col-md-3 -->
+
+                <!-- *** CUSTOMER MENU END *** -->
+            </div>
+
+            <div class="col-md-9">
+                <div class="box">
+                    <h1>My account</h1>
+                    <p class="lead">Change your personal details or your password here.</p>
+
+                    <h3>Change password</h3>
+
+                    <form ng-submit="savePassword()">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="password_old">Old password</label>
+                                    <input type="password" class="form-control" id="password_old"
+                                           ng-model="temp.oldPassword" required
+                                           pattern="[\w\W]{4,}" title="Password must above 6 character">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="password_1">New password</label>
+                                    <input type="password" class="form-control" id="password_1"
+                                           ng-model="temp.newPassword" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="password_2">Retype new password</label>
+                                    <input type="password" class="form-control" id="password_2"
+                                           ng-model="temp.newPasswordRe" required>
+                                </div>
+                            </div>
+                            {{user.password}}
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="col-sm-12 text-center">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save new password
+                            </button>
+                        </div>
+                    </form>
+
+                    <hr>
+
+                    <h3>Personal details</h3>
+                    <form ng-submit="saveAccount()">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" ng-model="user.name" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <input type="text" class="form-control" id="address" ng-model="user.address"
+                                           required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" class="form-control" id="phone" ng-model="user.phone" required>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control" id="email" ng-model="user.email" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label for="sex">Gender</label>
+                                    <select class="form-control" ng-model="user.sex" id="sex" required>
+                                        <option value="male" ng-selected="user.sex=='male'">Male</option>
+                                        <option value="female" ng-selected="user.sex=='female'">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 text-center">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes
+                                </button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
     </div>
-    <!-- /#all -->
+    <!-- /#content -->
+
+</div>
+<!-- /#all -->
 
 </body>
 

@@ -1,13 +1,15 @@
-
-
 <div id="top">
     <div class="container">
         <div class="col-md-6 offer">
-            <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Sale Off</a> <a href="#">Rose sale off
+            <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake" id="saleOff">Sale Off</a> <a href="#">Rose sale off
             50%</a>
         </div>
-        <div class="col-md-6">
-            <ul class="menu">
+        <div class="col-md-6" ng-controller="LogOutController">
+            <ul class="menu" ng-if="isLogin">
+                <li><a href="#account">Hello,{{user.name}}</a></li>
+                <li><a href="#" ng-click="logout()">Log out</a></li>
+            </ul>
+            <ul class="menu" ng-if="!isLogin">
                 <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
                 <li><a href="#register">Register</a></li>
             </ul>
@@ -18,16 +20,18 @@
 
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close-modal">&times;</button>
                     <h4 class="modal-title" id="Login">Login</h4>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" ng-controller="Login">
                     <form method="post" ng-submit="login()">
                         <div class="form-group">
-                            <input type="text" class="form-control" id="email-modal" placeholder="username">
+                            <input type="text" class="form-control" id="username" placeholder="username"
+                                   ng-model="user.username">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password-modal" placeholder="password">
+                            <input type="password" class="form-control" id="password" placeholder="password"
+                                   ng-model="user.password">
                         </div>
 
                         <p class="text-center">
@@ -51,20 +55,20 @@
         <div class="navbar-header">
 
             <a class="navbar-brand home" href="#home" data-animate-hover="bounce">
-                <img src="resource/img/logo.png" alt="Obaju logo" class="hidden-xs">
-                <img src="resource/img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
+                <img src="resource/img/logo.png" alt="Flower Shop logo" class="hidden-xs">
+                <img src="resource/img/logo.png" alt="Flower Shop logo" class="visible-xs"><span class="sr-only">Flower Team</span>
             </a>
             <div class="navbar-buttons">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation">
                     <span class="sr-only">Toggle navigation</span>
                     <i class="fa fa-align-justify"></i>
                 </button>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#search">
+                <button type="button" class="navbar-toggle" ng-click="isShowSearch=!isShowSearch">
                     <span class="sr-only">Toggle search</span>
                     <i class="fa fa-search"></i>
                 </button>
-                <a class="btn btn-default navbar-toggle" href="#basket">
-                    <i class="fa fa-shopping-cart"></i> <span class="hidden-xs">3 items in cart</span>
+                <a class="btn btn-default navbar-toggle" href="#basket" ng-controller="DetailController">
+                    <i class="fa fa-shopping-cart"></i> <span class="hidden-xs">{{baskets.length}} items in cart</span>
                 </a>
             </div>
         </div>
@@ -76,41 +80,52 @@
                 <li class="active"><a href="#home">Home</a>
                 </li>
                 <li class="dropdown yamm-fw">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Products
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">Products
                         <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <div class="yamm-content">
-                                <div class="row">
+                                <div class="row" ng-controller="CategoryController">
                                     <div class="col-sm-4">
                                         <h5>Flowers</h5>
                                         <ul>
-                                            <li><a href="#category">Roses</a>
+                                            <li><a ng-click="addProductFilterNavbar('Flower',0)">Roses</a>
                                             </li>
-                                            <li><a href="#category">Orchids</a>
+                                            <li><a ng-click="addProductFilterNavbar('Flower',1)">Orchids</a>
                                             </li>
-                                            <li><a href="#category">Lilies</a>
+                                            <li><a ng-click="addProductFilterNavbar('Flower',2)">Lilies</a>
                                             </li>
-                                            <li><a href="#category">Sunflowers</a>
+                                            <li><a ng-click="addProductFilterNavbar('Flower',3)">Sunflowers</a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <h5>Topic</h5>
                                         <ul>
-                                            <li><a href="#category">Spring</a></li>
-                                            <li><a href="#category">Summer</a></li>
-                                            <li><a href="#category">Autumn</a></li>
-                                            <li><a href="#category">Winter</a></li>
+                                            <li><a ng-click="addProductFilterNavbar('Topic',0)">Spring</a>
+                                            </li>
+                                            <li><a ng-click="addProductFilterNavbar('Topic',1)">Summer</a>
+                                            </li>
+                                            <li><a ng-click="addProductFilterNavbar('Topic',2)">Autumn</a>
+                                            </li>
+                                            <li><a ng-click="addProductFilterNavbar('Topic',3)">Winter</a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="col-sm-4">
                                         <h5>Accessories</h5>
                                         <ul>
-                                            <li><a href="#category">Decorate</a></li>
-                                            <li><a href="#category">Flower pot</a></li>
-                                            <li><a href="#category">Seed</a></li>
-                                            <li><a href="#category">Fertilizer</a></li>
+                                            <li><a
+                                                   ng-click="addProductFilterNavbar('Accessories',0)">Decorate</a>
+                                            </li>
+                                            <li><a
+                                                   ng-click="addProductFilterNavbar('Accessories',1)">Flower pot</a>
+                                            </li>
+                                            <li><a
+                                                   ng-click="addProductFilterNavbar('Accessories',2)">Seed</a></li>
+                                            <li><a
+                                                   ng-click="addProductFilterNavbar('Accessories',3)">Fertilizer</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -121,13 +136,15 @@
                 </li>
 
                 <li class="dropdown yamm-fw">
-                    <a href="#blog" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">News
+                    <a href="#blog" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-delay="200">News
                         <!--<b class="caret"></b>-->
                     </a>
                 </li>
 
                 <li class="dropdown yamm-fw">
-                    <a href="#contact" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">About
+                    <a href="#contact" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-delay="200">About
                         Us </a>
                 </li>
             </ul>
@@ -137,36 +154,34 @@
 
         <div class="navbar-buttons">
 
-            <div class="navbar-collapse collapse right" id="basket-overview">
+            <div class="navbar-collapse collapse right" id="basket-overview" ng-controller="DetailController">
                 <a href="#basket" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span
-                        class="hidden-sm">3 items in cart</span></a>
+                        class="hidden-sm">{{baskets.length}} items in cart</span></a>
             </div>
             <!--/.nav-collapse -->
 
             <div class="navbar-collapse collapse right" id="search-not-mobile">
-                <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                <button type="button" class="btn navbar-btn btn-primary" ng-click="isShowSearch=!isShowSearch">
                     <span class="sr-only">Toggle search</span>
                     <i class="fa fa-search"></i>
                 </button>
             </div>
 
         </div>
-
-        <div class="collapse clearfix" id="search">
-
+        <div id="search" ng-init="isShowSearch=false" ng-show="isShowSearch">
             <form class="navbar-form" role="search">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search">
+                    <input type="text" class="form-control" placeholder="Search" ng-model="search.item">
                     <span class="input-group-btn">
 
-			<button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-
+			<button ng-click="addSearchItem(search.item)" class="btn btn-primary"><i class="fa fa-search"></i></button>
 		    </span>
                 </div>
-            </form>
 
+            </form>
         </div>
         <!--/.nav-collapse -->
+
 
     </div>
     <!-- /.container -->

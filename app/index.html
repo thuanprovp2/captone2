@@ -72,9 +72,13 @@
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
 
-<!--IMPORT RESOURCE CUSTOMER-->
-
-<!--IMPORT SCRIPT CUSTOMER-->
+<!--IMPORT SERVICE CUSTOMER-->
+<script src="bower_components/ngstorage/ngStorage.js"></script>
+<script src="src/customer/authen.service.js"></script>
+<script src="src/customer/authen.interceptors.js"></script>
+<script src="src/customer/login.js"></script>
+<script src="src/customer/logout.js"></script>
+<!--END IMPORT SERVICE CUSTOMER-->
 
 
 <!--IMPORT FILE SRC CUSTOMER-->
@@ -100,6 +104,7 @@
 <script src="src/customer/contact/contact.state.js"></script>
 <script src="src/customer/account/account.controller.js"></script>
 <script src="src/customer/account/account.state.js"></script>
+<script src="src/customer/account/account.factory.js"></script>
 <script src="src/customer/order/order.controller.js"></script>
 <script src="src/customer/order/order.state.js"></script>
 <script src="src/customer/list-order/list-order.controller.js"></script>
